@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AssignMate
 
-## Getting Started
+## AssignMate is a teacher-focused assignment management app that simplifies tracking and organizing student tasks. It allows teachers to add students, assign work, update statuses, and monitor ongoing and completed assignments—all in one place. 🚀
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Todo
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **Authentication**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [ ] **Sign Up**: Allow teachers to create an account (no email verification required).
+- [ ] **Login**: Allow teachers to log in using their credentials.
+- [ ] **Profile Management**: Teachers can view and update their profile information.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### **Dashboard**
 
-## Learn More
+- [ ] **Home Page**: Display ongoing and completed assignments in a structured format.
 
-To learn more about Next.js, take a look at the following resources:
+### **Student Management**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [ ] **Add Students**: Allow teachers to add students to the database.
+- [ ] **View Student List**: Display a list of added students for easy assignment management.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### **Assignment Management**
 
-## Deploy on Vercel
+- [ ] **Create Assignment**: Allow teachers to create a new assignment with a due date.
+- [ ] **Assign Students**: Teachers can assign students to specific assignments.
+- [ ] **View Assignment Details**: Display full assignment details, including due date, assigned students, and submission status.
+- [ ] **Update Assignment Status**: Allow teachers to update the status of an assignment (e.g., pending, completed, graded).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### **Extra Features (Optional)**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [ ] **Search & Filter Assignments**: Allow teachers to filter assignments by status, due date, or student.
+- [ ] **Notifications**: Notify students when they are assigned an assignment (email or in-app).
+- [ ] **Export Data**: Provide an option to export student assignment data as a CSV/PDF.
