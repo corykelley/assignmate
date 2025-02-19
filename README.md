@@ -1,6 +1,6 @@
 # AssignMate
 
-## AssignMate is a teacher-focused assignment management app that simplifies tracking and organizing student tasks. It allows teachers to add students, assign work, update statuses, and monitor ongoing and completed assignments—all in one place. 🚀
+AssignMate is a teacher-focused assignment management app that simplifies tracking and organizing student tasks. It allows teachers to add students, assign work, update statuses, and monitor ongoing and completed assignments—all in one place. 🚀
 
 ---
 
