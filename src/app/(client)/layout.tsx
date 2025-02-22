@@ -7,7 +7,7 @@ export default function FrontendLayout({
   return (
     <>
       <Navigation />
-      {children}
+      <main className="py-4 container">{children}</main>
     </>
   );
 }
