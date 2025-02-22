@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ReactNode } from "react";
 import { ClerkProvider } from "@clerk/nextjs";
 
+import Navigation from "./components/ui/Navigation";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -17,7 +18,10 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body>{children}</body>
+        <body>
+          <Navigation />
+          <main className="py-4 container">{children}</main>
+        </body>
       </html>
     </ClerkProvider>
   );

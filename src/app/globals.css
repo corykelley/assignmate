@@ -12,7 +12,7 @@
   }
 
   body {
-    @apply antialiased bg-slate-950 text-slate-50;
+    @apply antialiased bg-soft-sage text-deep-onyx;
   }
 
   img,

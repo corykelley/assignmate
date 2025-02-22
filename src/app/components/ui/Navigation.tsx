@@ -10,48 +10,58 @@ export default function Navigation() {
 
   return (
     <header>
-      <nav className="py-4 border-b border-slate-500">
-        <div className="flex flex-row gap-4 container justify-between items-center">
+      <nav className="py-4 lg:py-8">
+        <div className="flex flex-row gap-4 container items-center">
           <Link
             className={`link ${pathname === "/" ? "font-bold" : ""}`}
             href="/"
           >
             AssignMate
           </Link>
+          <Link
+            className={`link ${
+              pathname === "/parents-guide" ? "font-bold" : ""
+            }`}
+            href="/parents-guide"
+          >
+            Parent's Guide
+          </Link>
           <Suspense>
-            <SignedOut>
-              <div>
-                <SignInButton>
-                  <button className="py-2 px-4 bg-gray-600 text-white rounded">
-                    Sign In
-                  </button>
-                </SignInButton>
-              </div>
-            </SignedOut>
-            <SignedIn>
-              <div className="flex flex-row gap-2">
-                <Link
-                  className={`link ${
-                    pathname === "/profile" ? "font-bold" : ""
-                  }`}
-                  href="/profile"
-                >
-                  My Profile
-                </Link>
-                <div className="size-8 self-center">
-                  <UserButton
-                    appearance={{
-                      elements: {
-                        userButtonAvatarBox: {
-                          width: "100%",
-                          height: "100%",
-                        },
-                      },
-                    }}
-                  />
+            <div className="ml-auto">
+              <SignedOut>
+                <div>
+                  <SignInButton>
+                    <button className="rounded-md text-white bg-deep-onyx py-1 px-4 hover:bg-ironwood transition-colors">
+                      Sign In
+                    </button>
+                  </SignInButton>
                 </div>
-              </div>
-            </SignedIn>
+              </SignedOut>
+              <SignedIn>
+                <div className="flex flex-row gap-2">
+                  <Link
+                    className={`link ${
+                      pathname === "/dashboard" ? "font-bold" : ""
+                    }`}
+                    href="/dashboard"
+                  >
+                    My Dashboard
+                  </Link>
+                  <div className="size-8 self-center">
+                    <UserButton
+                      appearance={{
+                        elements: {
+                          userButtonAvatarBox: {
+                            width: "100%",
+                            height: "100%",
+                          },
+                        },
+                      }}
+                    />
+                  </div>
+                </div>
+              </SignedIn>
+            </div>
           </Suspense>
         </div>
       </nav>

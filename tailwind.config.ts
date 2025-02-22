@@ -21,9 +21,19 @@ export default {
     },
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        "soft-sage": "#F3F5ED",
+        "deep-onyx": "#181818",
+        ironwood: "#55564F",
+        "aged-pewter": "#B2B4A8",
+        "ember-red": "#F94743",
       },
+    },
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1400px",
     },
   },
   plugins: [],
