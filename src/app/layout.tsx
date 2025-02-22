@@ -1,13 +1,7 @@
 import type { Metadata } from "next";
-import {
-  ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
+import { ReactNode } from "react";
+import { ClerkProvider } from "@clerk/nextjs";
 
-import Navigation from "./components/ui/navigation";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -18,25 +12,12 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <body>
-          <header>
-            <Navigation />
-          </header>
-          <main>
-            <SignedOut>
-              <SignInButton />
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
-            {children}
-          </main>
-        </body>
+        <body className="antialiased">{children}</body>
       </html>
     </ClerkProvider>
   );
