@@ -14,7 +14,7 @@ export const StudentAssignmentTable = t.pgTable(
     studentId: t
       .uuid()
       .notNull()
-      .references(() => StudentTable.id, { onDelete: "cascade" }),
+      .references(() => StudentTable.id, { onDelete: "no action" }),
     createdAt,
     updatedAt,
   },

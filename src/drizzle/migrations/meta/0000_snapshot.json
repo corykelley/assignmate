@@ -1,5 +1,5 @@
 {
-  "id": "c51c9c8e-e6fe-428d-82dc-d9c54f645ff1",
+  "id": "94cd5f08-5611-4103-ba08-7b7b267384b7",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -84,11 +84,85 @@
         },
         "year": {
           "name": "year",
-          "type": "years",
+          "type": "grade_years",
           "typeSchema": "public",
           "primaryKey": false,
           "notNull": true,
-          "default": "'freshman'"
+          "default": "'kindergarten'"
+        },
+        "parentEmail": {
+          "name": "parentEmail",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "teacherId": {
+          "name": "teacherId",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updatedAt": {
+          "name": "updatedAt",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "students_teacherId_teachers_id_fk": {
+          "name": "students_teacherId_teachers_id_fk",
+          "tableFrom": "students",
+          "tableTo": "teachers",
+          "columnsFrom": [
+            "teacherId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "students_parentEmail_unique": {
+          "name": "students_parentEmail_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "parentEmail"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.teachers": {
+      "name": "teachers",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
         },
         "email": {
           "name": "email",
@@ -114,7 +188,15 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
+      "uniqueConstraints": {
+        "teachers_email_unique": {
+          "name": "teachers_email_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "email"
+          ]
+        }
+      },
       "policies": {},
       "checkConstraints": {},
       "isRLSEnabled": false
@@ -175,7 +257,7 @@
           "columnsTo": [
             "id"
           ],
-          "onDelete": "cascade",
+          "onDelete": "no action",
           "onUpdate": "no action"
         }
       },
@@ -185,6 +267,80 @@
           "columns": [
             "assignmentId",
             "studentId"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.teacher_assignments": {
+      "name": "teacher_assignments",
+      "schema": "",
+      "columns": {
+        "assignmentId": {
+          "name": "assignmentId",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "teacherId": {
+          "name": "teacherId",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updatedAt": {
+          "name": "updatedAt",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "teacher_assignments_assignmentId_assignments_id_fk": {
+          "name": "teacher_assignments_assignmentId_assignments_id_fk",
+          "tableFrom": "teacher_assignments",
+          "tableTo": "assignments",
+          "columnsFrom": [
+            "assignmentId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "teacher_assignments_teacherId_teachers_id_fk": {
+          "name": "teacher_assignments_teacherId_teachers_id_fk",
+          "tableFrom": "teacher_assignments",
+          "tableTo": "teachers",
+          "columnsFrom": [
+            "teacherId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "teacher_assignments_assignmentId_teacherId_pk": {
+          "name": "teacher_assignments_assignmentId_teacherId_pk",
+          "columns": [
+            "assignmentId",
+            "teacherId"
           ]
         }
       },
@@ -207,14 +363,16 @@
         "music"
       ]
     },
-    "public.years": {
-      "name": "years",
+    "public.grade_years": {
+      "name": "grade_years",
       "schema": "public",
       "values": [
-        "freshman",
-        "sophomore",
-        "junior",
-        "senior"
+        "kindergarten",
+        "first",
+        "second",
+        "third",
+        "fourth",
+        "fifth"
       ]
     }
   },
